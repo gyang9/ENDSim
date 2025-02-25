@@ -1,0 +1,2 @@
+Compile the c++ code by typing "make" in this directory. Then run the corresponding code as:
+./timing_ntuple /path/to/output.root

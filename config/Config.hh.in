@@ -1,0 +1,12 @@
+#pragma once
+#define CRY_Enabled @CRY_Enabled@
+#define TENSORFLOW_Enabled @TENSORFLOW_Enabled@
+#define NLOPT_Enabled @NLOPT_Enabled@
+
+#include <string>
+
+namespace RAT {
+
+static const std::string ENDVERSION = "@PROJECT_VERSION@";
+
+}  // namespace RAT

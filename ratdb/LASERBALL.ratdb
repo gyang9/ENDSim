@@ -1,0 +1,57 @@
+{
+    name: "LASERBALL"
+    index: "end",
+    valid_begin: [0,0],
+    valid_end: [0,0],
+
+    mother: "end_inner",
+    led_table_index: "end_laserball",
+    z_position: 0.0,
+
+    // Laserball deployment geometry
+    deployment_rod_radius: 3.175,
+    deployment_rod_material: "stainless_steel",
+    deployment_rod_color: [230.0, 0.0, 0.0, 0.5]
+    holder_rod_radius: 1.6,
+    holder_rod_material: "stainless_steel",
+    holder_rod_color: [0.0, 0.0, 210.0, 0.5],
+    holder_rod_length: 100.0,
+    // Diffuser sphere
+    sphere_radius: 10.0,
+    sphere_material: "laserball_ptfe",
+    sphere_color: [0.0, 220.0, 0.0, 0.5],
+    // Sphere uniformity properties (coordinates are costheta, phi, values are relative intensity)
+}
+
+// Material
+{
+    name: "MATERIAL",
+    index: "laserball_ptfe",
+    valid_begin : [0, 0],
+    valid_end : [0, 0],
+    density: 1.14,
+    nelements: 3,
+    nmaterials: 0,
+    elements: ["Hydrogen", "Carbon", "Oxygen",],
+    elemprop: [0.0703, 0.558, 0.3717],
+}
+
+// Optics
+{
+    // doi.org/10.1117/1.2992485
+    name: "OPTICS",
+    index: "laserball_ptfe",
+    valid_begin : [0, 0],
+    valid_end : [0, 0],
+    // arbitrarily extended properties from 200 down to 60 nm
+    RINDEX_option: "wavelength",
+    RINDEX_value1: [60.0, 800.0,],
+    RINDEX_value2: [1.36, 1.36,],
+    ABSLENGTH_option: "wavelength",
+    ABSLENGTH_value1: [60.0, 800.0],
+    ABSLENGTH_value2: [1e3, 1e3],
+    RSLENGTH_value1: [60.0, 800.0],
+    // RS Length can be as low as 0.0006, this is hard to simulate
+    RSLENGTH_value2: [0.1, 0.1],
+    PROPERTY_LIST: ["RINDEX", "ABSLENGTH", "RSLENGTH"]
+}

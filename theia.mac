@@ -1,0 +1,88 @@
+#/glg4debug/glg4param omit_muon_processes 1.0
+#/glg4debug/glg4param omit_hadronic_processes 1.0
+## Geo File only
+/rat/db/set DETECTOR experiment "End"
+/rat/db/set DETECTOR geo_file "End/End_25kt.geo"
+## Set PMTInfo
+/rat/db/set GEO[inner_pmts] pos_table "PMTINFO_25kt"
+#/rat/db/set GEO[inner_pmts] pos_table "PMTINFO_25kt_giant"
+#/rat/db/set GEO[inner_pmts] pos_table "PMTINFO_fake_20pct_coverage"
+#/rat/db/set GEO[inner_pmts] veto_table "PMTINFO_fake_20pct_coverage"
+#/rat/db/set GEO[inner_pmts] end_idx 79432
+#/rat/db/set GEO[inner_pmts] end_idx 46728
+/rat/db/set GEO[veto_pmts] enable 0
+#/rat/db/set GEO[inner_pmts] end_idx 46728
+/rat/db/set GEO[inner_pmts] end_idx 46728
+#/rat/db/set GEO[tank] r_max 10010.0
+#/rat/db/set GEO[tank] size_z 36010.0
+#/rat/db/set GEO[detector] r_max 10000.0
+#/rat/db/set GEO[detector] size_z 36000.0
+#/rat/db/set GEO[inner_tarp_can] r_max 9010.0
+#/rat/db/set GEO[inner_tarp_can] r_min 9000.0
+#/rat/db/set GEO[inner_tarp_can] size_z 35010.0
+#/rat/db/set GEO[inner_tarp_top] r_max 9010.0
+#/rat/db/set GEO[inner_tarp_top] position [0.0,0.0,35005.0]
+#/rat/db/set GEO[inner_tarp_bot] r_max 9010.0
+#/rat/db/set GEO[inner_tarp_bot] position [0.0,0.0,-35005.0]
+#/rat/db/set GEO[inner_surface] r_max 8850.0
+#/rat/db/set GEO[inner_surface] size_z 34850.0
+/rat/db/set GEO[inner_pmts] pmt_model "r7081pe"
+#/rat/db/set GEO[inner_pmts] pmt_model "r14688"
+#/rat/db/set GEO[inner_pmts] pmt_model "lappd"
+#/rat/db/set GEO[inner_pmts] pmt_model "h11934"
+#/rat/db/set GEO[inner_pmts] pmt_model "giant_pad"
+/rat/db/set GEO[inner_pmts] efficiency_correction 0.9
+#/rat/db/set GEO[veto_pmts] pmt_model "r7081pe"
+#/rat/db/set GEO[veto_pmts] pmt_model "r14688"
+#/rat/db/set GEO[veto_pmts] efficiency_correction 0.90
+
+#/rat/db/set GEO[detector] material "wbls_3pct_WM_0420"
+/rat/db/set GEO[inner_surface] material "wbls_5pct"
+/rat/db/set GEO[world] material "wbls_5pct"
+
+#/rat/db/set DETECTOR experiment "End"
+#/rat/db/set DETECTOR detector_factory "End"
+#/rat/db/set END_PARAMS fiducial_diameter 50394
+#/rat/db/set END_PARAMS fiducial_height 50394
+#/rat/db/set END_PARAMS fiducial_buffer 2520
+
+#/rat/db/set END_PARAMS photocathode_coverage 0.4
+
+#/rat/db/set GEO[inner_pmts] pmt_model "r7081pe"
+#/rat/db/set GEO[inner_pmts] efficiency_correction 0.90
+#/rat/db/set GEO[veto_pmts] pmt_model "r7081pe"
+#/rat/db/set GEO[veto_pmts] efficiency_correction 0.90
+
+#/rat/db/set MC thin_factor 2
+
+/run/initialize
+#/tracking/storeTrajectory 1
+
+/rat/proc prune
+/rat/procset prune "mc.track:opticalphoton"
+
+/rat/proc simpledaq
+/rat/proc count
+/rat/procset update 100
+
+/rat/proclast outroot
+
+#/rat/inroot/read /data/snoplus/home/gyang/rat-pac-end/tools/genie2rat/test.root
+#/generator/add vertexfile /data/snoplus/home/gyang/rat-pac-end/tools/genie2rat/genie_test_ccqe_1111_2222.root
+#/generator/add vertexfile /data/snoplus/home/gyang/rat-pac-end/tools/genie2rat/genie_1gev_ccqe_1111_2222.root
+#/generator/add vertexfile /data/snoplus/home/gyang/rat-pac-end/tools/genie2rat/genie_neutrino_4gev_cc_1111_2222.root
+#/generator/add vertexfile /data/snoplus/home/gyang/rat-pac-end/tools/genie2rat/genie_neutrino_cc_mach3input_1111_2222.root
+
+#/generator/add vertexfile /pnfs/dune/scratch/users/gyang/rat-pac-end/tools/genie2rat/genie_neutrino_cc2023_swap1_1000_1001.root
+#/generator/add vertexfile genie_neutrino_cc2023_swap1_current.root
+#/generator/add vertexfile genie_neutrino_cc2023_swap1_1000_1001.root
+
+#/generator/add vertexfile /data/snoplus/home/gyang/rat-pac-end/tools/genie2rat/genie_neutrino_cc2023_1111_2222.root
+#/generator/add vertexfile /global/scratch/users/gyang9/rat-pac-end/tools/genie2rat/genie_test_1111_2222.root
+/generator/add combo gun:point:poisson
+/generator/vtx/set mu- 1 0.0 0.0 100
+/generator/pos/set 0.0 0.0 0.0
+
+/run/beamOn 1
+
+
