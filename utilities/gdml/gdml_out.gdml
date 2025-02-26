@@ -914,6 +914,7 @@
         <position name="pos_cluster_89" unit="mm" x="6000.000000000001" y="-38.36384328824399" z="76500.0"/>
         <rotation name="rot_cluster_89" unit="deg" x="0" y="0" z="0"/>
       </physvol>
+      <auxiliary auxtype="SensDet" auxvalue="mydet"/>
     </volume>
     <volume name="vol_world">
       <materialref ref="water"/>
