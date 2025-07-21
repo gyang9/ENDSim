@@ -1,0 +1,26 @@
+{
+  name: "PMT",
+  index: "r14374",
+  valid_begin: [0,0],
+  valid_end: [0,0],
+
+  construction: "toroidal",
+
+  dynode_material: "stainless_steel",     // Ensure this material is defined in RATDB
+  glass_material: "quartz",   // Ensure this material (e.g., Pyrex) is defined in RATDB
+  pmt_vacuum_material: "pmt_vacuum",       // Ensure this material is defined in RATDB
+  photocathode_surface: "photocathode_R14374", // Define this optical surface in RATDB
+  mirror_surface: "mirror",    // Define this optical surface in RATDB (if applicable)
+  dynode_surface: "stainless_steel", // Define this optical surface in RATDB
+
+  dynode_radius: 23.0, // mm (Estimated - VERIFY WITH DRAWING/SPEC)
+  dynode_top:  -30.0, // mm (Estimated - VERIFY WITH DRAWING/SPEC)
+  wall_thickness: 3.0, // mm (Assumed - VERIFY WITH DRAWING/SPEC)
+
+  z_edge:   [ 4.020,              1.00,   0.00, -16.75,   -30.00, -32.00, -119.0], // rough guess. Photocathode details are wrong
+  rho_edge: [ 40.0 ,                     40.0, 40.0,  40.0,     26.65, 26.65, 26.65],   // this assumes that the photocathode covers the entire front face of the PMT
+  z_origin: [ -1000000.00,        0.00,   0.00,  10000.00,  31.00, 0.00],      // and wraps back another 1mm, in reality the photocathode diameter is ~64mm
+
+  noise_rate: 10000.0 // Hz (Calculated from 50nA anode dark current at 1e7 gain)
+}
+
