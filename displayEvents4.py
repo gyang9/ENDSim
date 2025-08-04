@@ -1,0 +1,371 @@
+import uproot
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+import os
+import time
+import awkward as ak
+import argparse
+import re
+
+# --- Configuration ---
+# NOTE: This script now uses matplotlib for standalone window display.
+
+# PDG codes for lookup
+PDG_MUON = 13
+PDG_ANTI_MUON = -13
+PDG_MUON_NEUTRINO = 14
+PDG_ANTI_MUON_NEUTRINO = -14
+
+# --- New: Style guide for plotting different particles ---
+PARTICLE_STYLES = {
+    13:           {'color': 'blue',   'label': 'μ-'},
+    -13:          {'color': 'cyan',   'label': 'μ+'},
+    2212:         {'color': 'green',  'label': 'Proton'},
+    2112:         {'color': 'orange', 'label': 'Neutron'},
+    211:          {'color': 'magenta','label': 'π+'},
+    -211:         {'color': 'pink',   'label': 'π-'},
+    111:          {'color': 'purple', 'label': 'π0'},
+    22:           {'color': 'gold',   'label': 'Gamma'},
+    11:           {'color': 'lime',   'label': 'e-'},
+    -11:          {'color': 'yellow', 'label': 'e+'}
+}
+
+
+# Physics and Display Parameters
+MUON_MASS_MEV = 105.65837
+# Generic energy loss for track length visualization.
+# Note: This is a simplification; actual dE/dx varies by particle and energy.
+ENERGY_LOSS_MEV_PER_MM = 0.2
+CHERENKOV_ANGLE_DEG = 42.0
+
+# --- Matching Tolerances ---
+# Matching is now done on KE and the angle with the Z-axis.
+KE_TOLERANCE_MEV = 0.00001 # 1.0 MeV
+ANGLE_TOLERANCE_COS = 0.001 # Tolerance for the cosine of the angle
+
+
+def load_data(ratpac_path, genie_path):
+    """
+    Loads the TTree objects from the ROOT files using uproot.
+    """
+    if not os.path.exists(ratpac_path):
+        print(f"Error: RATPAC file not found at '{ratpac_path}'")
+        return None, None, None
+    if not os.path.exists(genie_path):
+        print(f"Error: GENIE file not found at '{genie_path}'")
+        return None, None, None
+
+    print("Loading data from files...")
+    rat_file = uproot.open(ratpac_path)
+    genie_file = uproot.open(genie_path)
+
+    return rat_file['meta'], rat_file['output'], genie_file['gRooTracker']
+
+
+def get_pmt_positions(meta_tree):
+    """
+    Extracts PMT positions from the meta tree.
+    """
+    print("Reading detector geometry (PMT positions)...")
+    pmt_data = meta_tree.arrays(['pmtId', 'pmtX', 'pmtY', 'pmtZ'])
+    pmt_ids, pmt_x, pmt_y, pmt_z = pmt_data['pmtId'][0], pmt_data['pmtX'][0], pmt_data['pmtY'][0], pmt_data['pmtZ'][0]
+    pmt_positions = {int(pid): {'x': x, 'y': y, 'z': z} for pid, x, y, z in zip(pmt_ids, pmt_x, pmt_y, pmt_z)}
+    print(f"Found {len(pmt_positions)} PMTs in the detector.")
+    return pmt_positions
+
+def get_genie_muon_kinematics(genie_data, evt_range=None):
+    """
+    Pre-processes the GENIE file to extract kinematics for all final-state muons,
+    optionally filtering by an event number range.
+    """
+    print("Pre-processing GENIE data for faster matching...")
+    start_time = time.time()
+
+    # Load all necessary data at once
+    all_pdgs = genie_data['StdHepPdg']
+    all_statuses = genie_data['StdHepStatus']
+    all_p4 = genie_data['StdHepP4']
+    all_evt_nums = genie_data['EvtNum']
+
+    # --- New: Filter by Event Number Range ---
+    if evt_range:
+        print(f"Filtering GENIE events for range: {evt_range[0]}-{evt_range[1]}")
+        range_mask = (all_evt_nums >= evt_range[0]) & (all_evt_nums <= evt_range[1])
+        all_pdgs = all_pdgs[range_mask]
+        all_statuses = all_statuses[range_mask]
+        all_p4 = all_p4[range_mask]
+        if len(all_pdgs) == 0:
+            print("Warning: No GENIE events found in the specified range.")
+            return None
+        print(f"Found {len(all_pdgs)} GENIE events in range.")
+
+    final_muon_mask = ((all_pdgs == PDG_MUON) | (all_pdgs == PDG_ANTI_MUON)) & (all_statuses == 1)
+    initial_neutrino_mask = ((all_pdgs == PDG_MUON_NEUTRINO) | (all_pdgs == PDG_ANTI_MUON_NEUTRINO)) & (all_statuses == 0)
+
+    event_selection_mask = (ak.sum(final_muon_mask, axis=1) == 1) & (ak.sum(initial_neutrino_mask, axis=1) == 1)
+
+    valid_pdgs = all_pdgs[event_selection_mask]
+    valid_statuses = all_statuses[event_selection_mask]
+    valid_p4 = all_p4[event_selection_mask]
+
+    final_muon_mask_valid = ((valid_pdgs == PDG_MUON) | (valid_pdgs == PDG_ANTI_MUON)) & (valid_statuses == 1)
+    initial_neutrino_mask_valid = ((valid_pdgs == PDG_MUON_NEUTRINO) | (valid_pdgs == PDG_ANTI_MUON_NEUTRINO)) & (valid_statuses == 0)
+
+    muon_p4 = ak.firsts(valid_p4[final_muon_mask_valid])
+    neutrino_p4 = ak.firsts(valid_p4[initial_neutrino_mask_valid])
+
+    muon_p4_np = ak.to_numpy(muon_p4)
+    neutrino_p4_np = ak.to_numpy(neutrino_p4)
+
+    px, py, pz = muon_p4_np[:, 0], muon_p4_np[:, 1], muon_p4_np[:, 2]
+    p_total = np.sqrt(px**2 + py**2 + pz**2)
+    genie_cos_theta_z = np.divide(pz, p_total, out=np.zeros_like(pz), where=p_total!=0)
+
+    muon_total_e_gev = muon_p4_np[:, 3]
+    genie_muon_ke_mev = (muon_total_e_gev * 1000.0) - MUON_MASS_MEV
+    genie_neutrino_e_mev = neutrino_p4_np[:, 3] * 1000.0
+    
+    print(f"GENIE pre-processing finished in {time.time() - start_time:.2f} seconds.")
+    
+    return {
+        'ke_mev': genie_muon_ke_mev,
+        'cos_theta_z': genie_cos_theta_z,
+        'neutrino_e_mev': genie_neutrino_e_mev
+    }
+
+
+def find_genie_match_vectorized(ratpac_ke, ratpac_cos_theta, genie_kinematics):
+    """
+    Finds a matching GENIE event using optimized NumPy vector operations, matching on KE and Z-angle.
+    """
+    if genie_kinematics is None:
+        return -1.0
+
+    ke_diffs = np.abs(ratpac_ke - genie_kinematics['ke_mev'])
+    cos_theta_diffs = np.abs(ratpac_cos_theta - genie_kinematics['cos_theta_z'])
+
+    match_indices = np.where((ke_diffs < KE_TOLERANCE_MEV) & (cos_theta_diffs < ANGLE_TOLERANCE_COS))[0]
+
+    if len(match_indices) > 0:
+        return genie_kinematics['neutrino_e_mev'][match_indices[0]]
+    else:
+        print("  [Diagnostics] Match failed. Finding closest candidate...")
+        closest_idx = np.argmin(ke_diffs)
+        closest_ke = genie_kinematics['ke_mev'][closest_idx]
+        closest_cos_theta = genie_kinematics['cos_theta_z'][closest_idx]
+        
+        print(f"    RATPAC Event: KE = {ratpac_ke:.2f} MeV, cos(theta) = {ratpac_cos_theta:.4f}")
+        print(f"    Closest GENIE:  KE = {closest_ke:.2f} MeV, cos(theta) = {closest_cos_theta:.4f}")
+        print(f"    Differences:    d(KE) = {np.abs(ratpac_ke - closest_ke):.2f} MeV, d(cos) = {np.abs(ratpac_cos_theta - closest_cos_theta):.4f}")
+        return -1.0
+
+
+def create_cherenkov_cone_verts(start_pos, direction, length, angle_deg):
+    """
+    Generates vertices for a 3D Cherenkov cone for Matplotlib.
+    """
+    norm_dir = np.linalg.norm(direction)
+    if norm_dir == 0: return []
+    direction = direction / norm_dir
+    angle_rad = np.radians(angle_deg)
+    radius = length * np.tan(angle_rad)
+    v_rand = np.random.randn(3)
+    v_rand -= v_rand.dot(direction) * direction
+    if np.linalg.norm(v_rand) < 1e-6:
+        v_rand = np.array([1, 0, 0])
+        v_rand -= v_rand.dot(direction) * direction
+    v1 = v_rand / np.linalg.norm(v_rand)
+    v2 = np.cross(direction, v1)
+    num_segments = 30
+    t = np.linspace(0, 2 * np.pi, num_segments + 1)
+    circle_pts = radius * (np.outer(np.cos(t), v1) + np.outer(np.sin(t), v2))
+    base_pts = start_pos + length * direction + circle_pts
+    verts = [[start_pos, base_pts[i], base_pts[i+1]] for i in range(num_segments)]
+    return verts
+
+
+def process_and_visualize_events(ratpac_filename, meta_tree, output_tree, genie_tree):
+    """
+    Main function to process events and generate 3D visualizations using Matplotlib.
+    """
+    pmt_positions = get_pmt_positions(meta_tree)
+
+    evt_range = None
+    match = re.search(r'(\d+)-(\d+)\.', ratpac_filename)
+    if match:
+        evt_range = (int(match.group(1)), int(match.group(2)))
+    else:
+        print("Warning: Could not parse event range from RATPAC filename. GENIE matching may be incorrect.")
+
+    print("Reading event data...")
+    output_data = output_tree.arrays(["mcpdgs", "mckes", "mcus", "mcvs", "mcws", "mcxs", "mcys", "mczs", "mcPMTID", "mcPEHitTime"])
+    genie_data_raw = genie_tree.arrays(['StdHepPdg', 'StdHepStatus', 'StdHepP4', 'EvtNum'])
+
+    genie_kinematics = get_genie_muon_kinematics(genie_data_raw, evt_range)
+
+    num_events = len(output_data)
+    print(f"Total events in RATPAC file: {num_events}")
+    
+    all_z = [p['z'] for p in pmt_positions.values()]
+    min_z, max_z = min(all_z), max(all_z)
+
+    for i in range(num_events):
+        print(f"\n--- Processing RATPAC Event {i+1}/{num_events} ---")
+        
+        # --- Find the first muon to define the primary interaction and cone ---
+        muon_ke, muon_dir, muon_pos = -1, None, None
+        first_muon_found = False
+        for p_idx, pdg in enumerate(output_data["mcpdgs"][i]):
+             if pdg in [PDG_MUON, PDG_ANTI_MUON]:
+                muon_ke = output_data["mckes"][i][p_idx]
+                muon_dir = np.array([output_data["mcus"][i][p_idx], output_data["mcvs"][i][p_idx], output_data["mcws"][i][p_idx]])
+                muon_pos = np.array([output_data["mcxs"][i][p_idx], output_data["mcys"][i][p_idx], output_data["mczs"][i][p_idx]])
+                first_muon_found = True
+                break # Found the primary muon
+
+        if not first_muon_found:
+            print("  No muon found in this event's primary particles. Skipping.")
+            continue
+        
+        muon_dir_norm = np.linalg.norm(muon_dir)
+        ratpac_cos_theta = muon_dir[2] / muon_dir_norm if muon_dir_norm > 0 else 0.0
+        neutrino_energy = find_genie_match_vectorized(muon_ke, ratpac_cos_theta, genie_kinematics)
+        
+        if neutrino_energy > 0:
+            print(f"Match found! Neutrino Energy: {neutrino_energy:.2f} MeV")
+        else:
+            print("Warning: Could not find a matching GENIE event.")
+
+        event_pmt_ids = output_data['mcPMTID'][i]
+        event_pe_times = output_data['mcPEHitTime'][i]
+
+        hit_pmt_info = {}
+        for pmt_id, time in zip(event_pmt_ids, event_pe_times):
+            if pmt_id not in hit_pmt_info:
+                hit_pmt_info[pmt_id] = {'times': []}
+            hit_pmt_info[pmt_id]['times'].append(time)
+            
+        for pmt_id in hit_pmt_info:
+            times = hit_pmt_info[pmt_id]['times']
+            hit_pmt_info[pmt_id]['npe'] = len(times)
+            hit_pmt_info[pmt_id]['first_time'] = min(times) if times else 0
+
+        fig = plt.figure(figsize=(12, 12))
+        ax = fig.add_subplot(111, projection='3d')
+
+        all_pmt_ids = set(pmt_positions.keys())
+        hit_pmt_ids = set(hit_pmt_info.keys())
+        non_hit_pmt_ids = all_pmt_ids - hit_pmt_ids
+        
+        if non_hit_pmt_ids:
+            non_hit_coords = [pmt_positions[pid] for pid in non_hit_pmt_ids]
+            non_hit_x, non_hit_y, non_hit_z = zip(*[p.values() for p in non_hit_coords])
+            ax.scatter(non_hit_x, non_hit_y, non_hit_z, 
+                       facecolors='none', edgecolors='lightgray', alpha=0.1, s=10, label='Non-hit PMTs')
+
+        if hit_pmt_ids:
+            hit_pmt_coords = [pmt_positions[pid] for pid in hit_pmt_info]
+            hit_pmt_x, hit_pmt_y, hit_pmt_z = zip(*[p.values() for p in hit_pmt_coords])
+            hit_pmt_npe = np.array([info['npe'] for info in hit_pmt_info.values()])
+            hit_pmt_time = np.array([info['first_time'] for info in hit_pmt_info.values()])
+            marker_areas = hit_pmt_npe * 50
+
+            sc = ax.scatter(hit_pmt_x, hit_pmt_y, hit_pmt_z, s=marker_areas, c=hit_pmt_time, 
+                            cmap='plasma', edgecolor='k', alpha=0.9, label='Hit PMTs')
+            cbar = fig.colorbar(sc, shrink=0.5, aspect=10)
+            cbar.set_label('First Hit Time (ns)', fontsize=14)
+
+        # --- Plot all primary particle tracks with KE in the legend ---
+        for p_idx, pdg in enumerate(output_data["mcpdgs"][i]):
+            style = PARTICLE_STYLES.get(pdg, {'color': 'gray', 'label': f'Other ({pdg})'})
+            
+            p_ke = output_data["mckes"][i][p_idx]
+            if p_ke <= 0: continue # Don't plot zero-energy particles
+
+            p_dir = np.array([output_data["mcus"][i][p_idx], output_data["mcvs"][i][p_idx], output_data["mcws"][i][p_idx]])
+            p_pos = np.array([output_data["mcxs"][i][p_idx], output_data["mcys"][i][p_idx], output_data["mczs"][i][p_idx]])
+            
+            track_len = p_ke / ENERGY_LOSS_MEV_PER_MM
+            track_end = p_pos + p_dir * track_len
+
+            # Create a unique label for each particle with its KE
+            label = f"{style['label']} ({p_ke:.1f} MeV)"
+            ax.plot([p_pos[0], track_end[0]], [p_pos[1], track_end[1]], [p_pos[2], track_end[2]],
+                    color=style['color'], linestyle='--', linewidth=2.5, label=label)
+
+        # Draw Cherenkov cone only for the primary muon
+        if first_muon_found:
+            track_length_mm = muon_ke / ENERGY_LOSS_MEV_PER_MM
+            cone_verts = create_cherenkov_cone_verts(muon_pos, muon_dir, track_length_mm, CHERENKOV_ANGLE_DEG)
+            if cone_verts:
+                ax.add_collection3d(Poly3DCollection(cone_verts, facecolors='cyan', linewidths=0, alpha=0.15))
+            
+        block_y_bottom, block_y_top = -20000, -12000
+        block_x_min, block_x_max = -20000, 20000
+        block_z_min, block_z_max = min_z, max_z
+
+        verts = [
+            [(block_x_min, block_y_bottom, block_z_min), (block_x_max, block_y_bottom, block_z_min), (block_x_max, block_y_top, block_z_min), (block_x_min, block_y_top, block_z_min)],
+            [(block_x_min, block_y_bottom, block_z_max), (block_x_max, block_y_bottom, block_z_max), (block_x_max, block_y_top, block_z_max), (block_x_min, block_y_top, block_z_max)],
+            [(block_x_min, block_y_bottom, block_z_min), (block_x_min, block_y_bottom, block_z_max), (block_x_min, block_y_top, block_z_max), (block_x_min, block_y_top, block_z_min)],
+            [(block_x_max, block_y_bottom, block_z_min), (block_x_max, block_y_bottom, block_z_max), (block_x_max, block_y_top, block_z_max), (block_x_max, block_y_top, block_z_min)],
+            [(block_x_min, block_y_bottom, block_z_min), (block_x_max, block_y_bottom, block_z_min), (block_x_max, block_y_bottom, block_z_max), (block_x_min, block_y_bottom, block_z_max)],
+            [(block_x_min, block_y_top, block_z_min), (block_x_max, block_y_top, block_z_min), (block_x_max, block_y_top, block_z_max), (block_x_min, block_y_top, block_z_max)],
+        ]
+        ax.add_collection3d(Poly3DCollection(verts, facecolors='red', linewidths=0, alpha=0.3))
+
+        title_str = f"RATPAC Event Index: {i} | Neutrino E: {neutrino_energy:.2f} MeV | Muon KE: {muon_ke:.2f} MeV"
+        ax.set_title(title_str, fontsize=20)
+        ax.set_xlabel('X (mm)', fontsize=16); ax.set_ylabel('Y (mm)', fontsize=16); ax.set_zlabel('Z (mm)', fontsize=16)
+        
+        ax.set_xlim(-20000, 20000); ax.set_ylim(-20000, 20000)
+        
+        all_z_values = [p['z'] for p in pmt_positions.values()]
+        max_z_range = (max(all_z_values) - min(all_z_values)) / 2.0
+        mid_z = np.mean(all_z_values)
+        ax.set_zlim(mid_z - max_z_range, mid_z + max_z_range)
+
+        origin = (-18000, 18000, mid_z + max_z_range * 0.8)
+        arrow_length = 4000
+        ax.quiver(origin[0], origin[1], origin[2], arrow_length, 0, 0, color='k', arrow_length_ratio=0.1)
+        ax.quiver(origin[0], origin[1], origin[2], 0, arrow_length, 0, color='k', arrow_length_ratio=0.1)
+        ax.quiver(origin[0], origin[1], origin[2], 0, 0, arrow_length, color='k', arrow_length_ratio=0.1)
+        ax.text(origin[0] + arrow_length*1.1, origin[1], origin[2], " +X", color='k', fontsize=16)
+        ax.text(origin[0], origin[1] + arrow_length*1.1, origin[2], " +Y (Water Surface)", color='k', fontsize=16)
+        ax.text(origin[0], origin[1], origin[2] + arrow_length*1.1, " +Z (Beam Direction)", color='k', fontsize=16)
+
+        ax.legend(fontsize=12)
+        
+        # Set the default view orientation to the YZ plane (+Y vertical)
+        try:
+            #ax.view_init(elev=0, azim=0, vertical_axis='y')
+            ax.view_init(elev=0, azim=90, vertical_axis='y')
+        except TypeError:
+            print("\nWarning: 'vertical_axis' not supported in your matplotlib version.")
+            print("Displaying with default orientation.")
+            #ax.view_init(elev=0, azim=-90)
+
+            # Set the default view orientation (+Y up, looking down -Z)
+            # YX
+            #ax.view_init(elev=90, azim=-90)
+            # XZ
+            #ax.view_init(elev=0, azim=-90)
+            # ZY
+            #ax.view_init(elev=0, azim=90, vertical_axis='y')
+
+        plt.show()
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Display 3D events from RATPAC and GENIE files.")
+    parser.add_argument('-r', '--ratpac', default='output_out.numu_100000.rootracker.21700-21800.randomVtx.display_21700_21800.root', help="Path to the RATPAC output file (e.g., '...display_21700-21800.root').")
+    parser.add_argument('-g', '--genie', required=True, help="Path to the GENIE gRooTracker file.")
+    args = parser.parse_args()
+
+    meta, output, genie = load_data(args.ratpac, args.genie)
+    if meta and output and genie:
+        process_and_visualize_events(args.ratpac, meta, output, genie)
+        print("\nAll muon events have been processed.")
+
