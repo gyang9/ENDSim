@@ -24,3 +24,29 @@
   noise_rate: 10000.0 // Hz (Calculated from 50nA anode dark current at 1e7 gain)
 }
 
+
+{
+  "name": "PMT",
+  "index": "r12199",
+  "run_range": [0, 0],
+
+  "construction": "toroidal",
+
+  "dynode_material": "stainless_steel",
+  "glass_material": "quartz",
+  "pmt_vacuum_material": "pmt_vacuum",
+  "photocathode_surface": "photocathode_R11065",
+  "mirror_surface": "mirror",
+  "dynode_surface": "stainless_steel",
+
+  "dynode_radius": 23.0,
+  "dynode_top": -30.0,
+  "wall_thickness": 3.0,
+
+  "z_edge": [ 4.020, 1.00, 0.00, -16.75, -30.00, -32.00, -119.0],
+  "rho_edge": [ 46.0, 46.0, 46.0, 46.0, 26.65, 26.65, 26.65],
+  "z_origin": [ -1000000.00, 0.00, 0.00, 10000.00, 31.00, 0.00],
+
+  "noise_rate": 10000.0
+}
+
