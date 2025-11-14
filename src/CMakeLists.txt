@@ -5,6 +5,7 @@ add_library( END SHARED
   HitmanProc.cc
   NtupleProc.cc
   LaserballGenerator.cc
+  MyDAQProc.cc
 )
 
 target_include_directories( END PUBLIC

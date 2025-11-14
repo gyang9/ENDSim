@@ -1,0 +1,21 @@
+# Set the detector
+/rat/db/set DETECTOR experiment "End"
+/rat/db/set DETECTOR geo_file "End/END.geo"
+
+# Initialize the run
+/run/initialize
+
+# Load the DAQ processor
+/rat/proc mydaq
+
+# Set the output file
+/rat/proclast outntuple
+/rat/procset file "muon_1gev_output.root"
+
+/generator/add combo gun:point:poisson
+# Generate a 1 GeV muon at (0,0,0) along +z
+/generator/vtx/set mu- 0 0 1 1000
+/generator/pos/set 0 0 0
+
+# Run 100 events
+/run/beamOn 10

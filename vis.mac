@@ -24,8 +24,14 @@
 # For the sipm_side (PMT array), assign a brownish color
 #/rat/db/set GEO[sipm_side] color [0.4, 0.2, 0.2, 0.9]  # brown
 
-/run/initialize
+# Set cry variables for eos
+/rat/db/set CRY latitude 37.8715
+/rat/db/set CRY subboxLength 10
 
+/run/initialize
+/tracking/verbose 2
+
+/rat/proc mydaq
 #/tracking/storeTrajectory 1
 
 ##### Visualization ##########################
@@ -54,21 +60,30 @@
 #/vis/viewer/panTo 10 0
 /vis/viewer/set/upVector 0.0 0.0 1.0
 /vis/viewer/set/viewpointThetaPhi -90 135
+/vis/scene/add/scale
+/vis/scene/add/axes 0 0 0 2 m 
 
 /rat/proc count
 /rat/procset update 1
 
-/rat/proclast outroot
+#/rat/proclast outroot
 
 ##### GENERATORS #################
-#/generator/add combo gun:point:poisson
-#/generator/vtx/set e- 0.0 0.0 0.0 5.0
-#/generator/pos/set 1.0 1.0 1.0
+/generator/add combo gun:point:poisson
+/generator/vtx/set e- 0.0 0.0 1.0 1.0
+/generator/pos/set 0.0 0.0 0.0
 
 ##### GENERATORS #################
-/generator/add combo pbomb:point:poisson
-/generator/vtx/set 1000 400 # 1000 photons, 128nm
-/generator/pos/set -13.5 0.0 0.0
+#/generator/add combo pbomb:point:poisson
+#/generator/vtx/set 1000 400 # 1000 photons, 128nm
+#/generator/pos/set -13.5 0.0 0.0
+
+#/generator/add combo gun:fill:poisson
+#/generator/vtx/set mu- 0.0 0.0 0.0 20.0
+#/generator/pos/set 0.0 0.0 0.0
+
+#/generator/add combo cry:point
+#/generator/pos/set 0.0 0.0 2000.0
 
 ##### RUN ###########
 /run/beamOn 1
