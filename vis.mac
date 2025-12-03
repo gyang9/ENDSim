@@ -1,0 +1,98 @@
+/glg4debug/glg4param omit_muon_processes  1.0
+/glg4debug/glg4param omit_hadronic_processes  1.0
+
+#set the detector parameters
+/rat/db/set DETECTOR experiment "End"
+/rat/db/set DETECTOR geo_file "End/END.geo"
+
+# OpticsFixProc is automatically registered in End.cc, no need to call it here
+#/rat/proc opticsfix
+
+
+# Make the world volume visible and assign it a light gray color
+#/rat/db/set GEO[world] invisible 0
+#/rat/db/set GEO[world] color [0.8, 0.8, 0.8, 1.0]    # light gray
+
+# Set the inner_surface color to a bluish tone with high opacity
+#/rat/db/set GEO[inner_surface] color [0.42, 0.47, 0.57, 0.95]    # bluish-gray
+
+# For the PTP daughter layer (the target) set a bright red color
+#/rat/db/set GEO[PTP] color [1.0, 0.0, 0.0, 0.9]      # red
+
+# For the WLS layer, choose a green color
+#/rat/db/set GEO[WLS] color [0.0, 1.0, 0.0, 0.9]      # green
+
+# For the Reflector layer, assign white (or near-white)
+#/rat/db/set GEO[reflector] color [1.0, 1.0, 1.0, 0.9]  # white
+
+# For the sipm_side (PMT array), assign a brownish color
+#/rat/db/set GEO[sipm_side] color [0.4, 0.2, 0.2, 0.9]  # brown
+
+# Set cry variables for eos
+/rat/db/set CRY latitude 37.8715
+/rat/db/set CRY subboxLength 10
+
+/run/initialize
+
+#/tracking/storeTrajectory 1
+
+##### Visualization ##########################
+
+/vis/open OGLSQt
+/vis/scene/create
+/vis/scene/add/trajectories rich smooth
+/tracking/storeTrajectory 1
+/vis/viewer/set/rotationStyle freeRotation
+/tracking/FillPointCont 1
+/vis/scene/add/volume
+/vis/scene/add/hits
+/vis/scene/add/extent
+/vis/scene/list
+/vis/sceneHandler/attach
+/vis/viewer/set/upVector 0.0 0.0 1.0
+/vis/viewer/set/viewpointThetaPhi -90 135 
+/vis/viewer/set/style w
+/vis/geometry/set/visibility Structure 0 true
+/vis/geometry/set/forceWireframe Structure 0 true
+/vis/geometry/set/forceWireframe DU_Volume 0 true
+/vis/geometry/set/colour DU_Volume 0 0 0 1 .3
+/vis/geometry/set/visibility l_0_1_1_2 0 true
+/vis/geometry/set/colour l_0_1_1_2 0 1 0 0 1
+
+/vis/viewer/flush
+
+## Cut a plane through the detector
+#/vis/viewer/addCutawayPlane 0 0 0 cm 1 0 0
+#/vis/viewer/addCutawayPlane 0 -100 0 cm 0 1 0
+#/vis/viewer/set/viewpointThetaPhi -90 0
+#/vis/viewer/zoomTo 10
+#/vis/viewer/panTo 10 0
+/vis/viewer/set/upVector 0.0 0.0 1.0
+/vis/viewer/set/viewpointThetaPhi -90 135
+/vis/scene/add/scale
+/vis/scene/add/axes 0 0 0 2.5 m 
+
+/rat/proc count
+/rat/procset update 1
+
+/rat/proclast outroot
+
+##### GENERATORS #################
+/generator/add combo gun:point:poisson
+/generator/vtx/set e- 0.0 0.0 0.0 5.0
+/generator/pos/set 1.0 1.0 1.0
+
+##### GENERATORS #################
+#/generator/add combo pbomb:point:poisson
+#/generator/vtx/set 1000 400 # 1000 photons, 128nm
+#/generator/pos/set -13.5 0.0 0.0
+
+#/generator/add combo gun:fill:poisson
+#/generator/vtx/set mu- 0.0 0.0 0.0 20.0
+#/generator/pos/set 0.0 0.0 0.0
+
+#/generator/add combo cry:point
+#/generator/pos/set 0.0 0.0 2000.0
+
+##### RUN ###########
+/run/beamOn 1

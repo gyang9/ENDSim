@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <!--
+  ================================================================================================
+  DEFINES
+  This file contains all 31 PMTs. The rotations for the first 10 PMTs have been set to the
+  user-verified values. The rotations for the remaining PMTs have been calculated based on the
+  pattern derived from those correct values.
+  ================================================================================================
+  -->
+  <define>
+    <!-- PMT Positions -->
+    <position name="pos_0" x="0.0" y="-195.95494889" z="0.0" unit="mm"/>
+    <position name="pos_1" x="0.014519849" y="-165.571658" z="108.535225" unit="mm"/>
+    <position name="pos_2" x="-93.98700187" y="-165.5716577" z="54.28018691" unit="mm"/>
+    <position name="pos_3" x="-94.00152172" y="-165.5716577" z="-54.25503779" unit="mm"/>
+    <position name="pos_4" x="-0.014519849" y="-165.571658" z="-108.535225" unit="mm"/>
+    <position name="pos_5" x="93.98700187" y="-165.5716577" z="-54.28018691" unit="mm"/>
+    <position name="pos_6" x="94.00152172" y="-165.5716577" z="54.25503779" unit="mm"/>
+    <position name="pos_7" x="0.0187642369" y="-54.5766634" z="190.299738" unit="mm"/>
+    <position name="pos_8" x="-166.975329" y="-106.348057" z="-0.0100552998" unit="mm"/>
+    <position name="pos_9" x="-164.7950254" y="-54.57666342" z="95.16611935" unit="mm"/>
+    <position name="pos_10" x="-83.4789564" y="-106.3480569" z="-144.60990444" unit="mm"/>
+    <position name="pos_11" x="-164.81378963" y="-54.57666342" z="-95.13361874" unit="mm"/>
+    <position name="pos_12" x="83.49637269" y="-106.3480569" z="-144.59984914" unit="mm"/>
+    <position name="pos_13" x="-0.0187642369" y="-54.5766634" z="-190.299738" unit="mm"/>
+    <position name="pos_14" x="166.975329" y="-106.348057" z="0.0100552998" unit="mm"/>
+    <position name="pos_15" x="164.7950254" y="-54.57666342" z="-95.16611935" unit="mm"/>
+    <position name="pos_16" x="83.4789564" y="-106.3480569" z="144.60990444" unit="mm"/>
+    <position name="pos_17" x="164.81378963" y="-54.57666342" z="95.13361874" unit="mm"/>
+    <position name="pos_18" x="-83.49637269" y="-106.3480569" z="144.59984914" unit="mm"/>
+    <position name="pos_19" x="0.00758869613" y="106.365682" z="166.975496" unit="mm"/>
+    <position name="pos_20" x="-190.309996" y="54.5766634" z="0.0357977582" unit="mm"/>
+    <position name="pos_21" x="-144.60122658" y="106.36568243" z="83.49431976" unit="mm"/>
+    <position name="pos_22" x="-95.18599956" y="54.57666342" z="-164.79539189" unit="mm"/>
+    <position name="pos_23" x="-144.60881528" y="106.36568243" z="-83.48117575" unit="mm"/>
+    <position name="pos_24" x="95.12399602" y="54.57666342" z="-164.83118965" unit="mm"/>
+    <position name="pos_25" x="-0.00758869613" y="106.365682" z="-166.975496" unit="mm"/>
+    <position name="pos_26" x="190.309996" y="54.5766634" z="-0.0357977582" unit="mm"/>
+    <position name="pos_27" x="144.60122658" y="106.36568243" z="-83.49431976" unit="mm"/>
+    <position name="pos_28" x="95.18599956" y="54.57666342" z="164.79539189" unit="mm"/>
+    <position name="pos_29" x="144.60881528" y="106.36568243" z="83.48117575" unit="mm"/>
+    <position name="pos_30" x="-95.12399602" y="54.57666342" z="164.83118965" unit="mm"/>
+
+    <!-- PMT Rotations (Using user-verified values and derived logic) -->
+    <rotation name="rot_0" x="-90.0" y="0.0" z="0.0" unit="deg"/>
+    <rotation name="rot_1" x="-56.79" y="0.0" z="0.0" unit="deg"/>
+    <rotation name="rot_2" x="-74.09" y="29.2" z="0.0" unit="deg"/>
+    <rotation name="rot_3" x="-106.18" y="29.2" z="0.0" unit="deg"/>
+    <rotation name="rot_4" x="-146.79" y="0.0" z="0.0" unit="deg"/>
+    <rotation name="rot_5" x="-106.18" y="-29.54" z="0.0" unit="deg"/>
+    <rotation name="rot_6" x="-74.09" y="-29.54" z="0.0" unit="deg"/>
+    <rotation name="rot_7" x="-16.0" y="0.0" z="0.0" unit="deg"/>
+    <rotation name="rot_8" x="-90.0" y="57.3" z="0.0" unit="deg"/>
+    <rotation name="rot_9" x="-30.3" y="71.4" z="0.0" unit="deg"/>
+    <rotation name="rot_10" x="-136.96" y="38.12" z="0.0" unit="deg"/>
+    <rotation name="rot_11" x="-118.72" y="71.67" z="0.0" unit="deg"/>
+    <rotation name="rot_12" x="-136.95" y="-38.12" z="0.0" unit="deg"/>
+    <rotation name="rot_13" x="-164.0" y="0.0" z="0.0" unit="deg"/>
+    <rotation name="rot_14" x="-90.0" y="-57.49" z="0.0" unit="deg"/>
+    <rotation name="rot_15" x="-118.74" y="-71.66" z="0.0" unit="deg"/>
+    <rotation name="rot_16" x="-43.04" y="-38.12" z="0.0" unit="deg"/>
+    <rotation name="rot_17" x="-61.26" y="-71.67" z="0.0" unit="deg"/>
+    <rotation name="rot_18" x="-43.05" y="38.12" z="0.0" unit="deg"/>
+    <rotation name="rot_19" x="57.5" y="0.0" z="0.0" unit="deg"/>
+    <rotation name="rot_20" x="89.99" y="74.0" z="0.0" unit="deg"/>
+    <rotation name="rot_21" x="65.05" y="53.64" z="0.0" unit="deg"/>
+    <rotation name="rot_22" x="146.33" y="60.0" z="0.0" unit="deg"/>
+    <rotation name="rot_23" x="114.95" y="53.65" z="0.0" unit="deg"/>
+    <rotation name="rot_24" x="146.36" y="-60.0" z="0.0" unit="deg"/>
+    <rotation name="rot_25" x="147.5" y="0.0" z="0.0" unit="deg"/>
+    <rotation name="rot_26" x="89.99" y="-74.0" z="0.0" unit="deg"/>
+    <rotation name="rot_27" x="114.95" y="-53.64" z="0.0" unit="deg"/>
+    <rotation name="rot_28" x="33.67" y="-60.0" z="0.0" unit="deg"/>
+    <rotation name="rot_29" x="65.05" y="-53.65" z="0.0" unit="deg"/>
+    <rotation name="rot_30" x="33.64" y="60.0" z="0.0" unit="deg"/>
+
+    <!-- Position for composing the PMT solid -->
+    <position name="FaceOnBody" z="60" unit="mm"/>
+  </define>
+
+  <!--
+  ================================================================================================
+  MATERIALS
+  ================================================================================================
+  -->
+  <materials>
+    <material name="Vacuum" Z="1.0" N="1.008">
+      <D value="1.e-25" unit="g/cm3"/>
+    </material>
+    <material name="PMT_Material" Z="14.0" N="28.0855">
+      <D value="2.33" unit="g/cm3"/>
+    </material>
+  </materials>
+
+  <!--
+  ================================================================================================
+  SOLIDS
+  The PMT solid is now a composite of two tubes to make the orientation clearer.
+  - PMTBodyTube: The narrower, longer back section (the "body").
+  - PMTFaceTube: The wider, shorter front section (the "face").
+  ================================================================================================
+  -->
+  <solids>
+    <box name="WorldBox" x="1000" y="1000" z="1000" lunit="mm"/>
+    
+    <!-- Define the two parts of the PMT -->
+    <tube name="PMTBodyTube" rmin="0" rmax="25" z="100" startphi="0" deltaphi="360" aunit="deg" lunit="mm"/>
+    <tube name="PMTFaceTube" rmin="0" rmax="35" z="20" startphi="0" deltaphi="360" aunit="deg" lunit="mm"/>
+
+    <!-- Combine the two parts into a single solid. The Face is placed at the front of the Body. -->
+    <union name="PMTsolid">
+      <first ref="PMTBodyTube"/>
+      <second ref="PMTFaceTube"/>
+      <positionref ref="FaceOnBody"/>
+    </union>
+  </solids>
+
+  <!--
+  ================================================================================================
+  STRUCTURE
+  ================================================================================================
+  -->
+  <structure>
+    <volume name="logicPMT">
+      <materialref ref="PMT_Material"/>
+      <solidref ref="PMTsolid"/>
+    </volume>
+
+    <volume name="logicWorld">
+      <materialref ref="Vacuum"/>
+      <solidref ref="WorldBox"/>
+      <!-- Place all 31 PMTs inside the World Volume -->
+      <physvol name="physPMT_0"><volumeref ref="logicPMT"/><positionref ref="pos_0"/><rotationref ref="rot_0"/></physvol>
+      <physvol name="physPMT_1"><volumeref ref="logicPMT"/><positionref ref="pos_1"/><rotationref ref="rot_1"/></physvol>
+      <physvol name="physPMT_2"><volumeref ref="logicPMT"/><positionref ref="pos_2"/><rotationref ref="rot_2"/></physvol>
+      <physvol name="physPMT_3"><volumeref ref="logicPMT"/><positionref ref="pos_3"/><rotationref ref="rot_3"/></physvol>
+      <physvol name="physPMT_4"><volumeref ref="logicPMT"/><positionref ref="pos_4"/><rotationref ref="rot_4"/></physvol>
+      <physvol name="physPMT_5"><volumeref ref="logicPMT"/><positionref ref="pos_5"/><rotationref ref="rot_5"/></physvol>
+      <physvol name="physPMT_6"><volumeref ref="logicPMT"/><positionref ref="pos_6"/><rotationref ref="rot_6"/></physvol>
+      <physvol name="physPMT_7"><volumeref ref="logicPMT"/><positionref ref="pos_7"/><rotationref ref="rot_7"/></physvol>
+      <physvol name="physPMT_8"><volumeref ref="logicPMT"/><positionref ref="pos_8"/><rotationref ref="rot_8"/></physvol>
+      <physvol name="physPMT_9"><volumeref ref="logicPMT"/><positionref ref="pos_9"/><rotationref ref="rot_9"/></physvol>
+      <physvol name="physPMT_10"><volumeref ref="logicPMT"/><positionref ref="pos_10"/><rotationref ref="rot_10"/></physvol>
+      <physvol name="physPMT_11"><volumeref ref="logicPMT"/><positionref ref="pos_11"/><rotationref ref="rot_11"/></physvol>
+      <physvol name="physPMT_12"><volumeref ref="logicPMT"/><positionref ref="pos_12"/><rotationref ref="rot_12"/></physvol>
+      <physvol name="physPMT_13"><volumeref ref="logicPMT"/><positionref ref="pos_13"/><rotationref ref="rot_13"/></physvol>
+      <physvol name="physPMT_14"><volumeref ref="logicPMT"/><positionref ref="pos_14"/><rotationref ref="rot_14"/></physvol>
+      <physvol name="physPMT_15"><volumeref ref="logicPMT"/><positionref ref="pos_15"/><rotationref ref="rot_15"/></physvol>
+      <physvol name="physPMT_16"><volumeref ref="logicPMT"/><positionref ref="pos_16"/><rotationref ref="rot_16"/></physvol>
+      <physvol name="physPMT_17"><volumeref ref="logicPMT"/><positionref ref="pos_17"/><rotationref ref="rot_17"/></physvol>
+      <physvol name="physPMT_18"><volumeref ref="logicPMT"/><positionref ref="pos_18"/><rotationref ref="rot_18"/></physvol>
+      <physvol name="physPMT_19"><volumeref ref="logicPMT"/><positionref ref="pos_19"/><rotationref ref="rot_19"/></physvol>
+      <physvol name="physPMT_20"><volumeref ref="logicPMT"/><positionref ref="pos_20"/><rotationref ref="rot_20"/></physvol>
+      <physvol name="physPMT_21"><volumeref ref="logicPMT"/><positionref ref="pos_21"/><rotationref ref="rot_21"/></physvol>
+      <physvol name="physPMT_22"><volumeref ref="logicPMT"/><positionref ref="pos_22"/><rotationref ref="rot_22"/></physvol>
+      <physvol name="physPMT_23"><volumeref ref="logicPMT"/><positionref ref="pos_23"/><rotationref ref="rot_23"/></physvol>
+      <physvol name="physPMT_24"><volumeref ref="logicPMT"/><positionref ref="pos_24"/><rotationref ref="rot_24"/></physvol>
+      <physvol name="physPMT_25"><volumeref ref="logicPMT"/><positionref ref="pos_25"/><rotationref ref="rot_25"/></physvol>
+      <physvol name="physPMT_26"><volumeref ref="logicPMT"/><positionref ref="pos_26"/><rotationref ref="rot_26"/></physvol>
+      <physvol name="physPMT_27"><volumeref ref="logicPMT"/><positionref ref="pos_27"/><rotationref ref="rot_27"/></physvol>
+      <physvol name="physPMT_28"><volumeref ref="logicPMT"/><positionref ref="pos_28"/><rotationref ref="rot_28"/></physvol>
+      <physvol name="physPMT_29"><volumeref ref="logicPMT"/><positionref ref="pos_29"/><rotationref ref="rot_29"/></physvol>
+      <physvol name="physPMT_30"><volumeref ref="logicPMT"/><positionref ref="pos_30"/><rotationref ref="rot_30"/></physvol>    
+    </volume>
+  </structure>
+
+  <!--
+  ================================================================================================
+  SETUP
+  ================================================================================================
+  -->
+  <setup name="Default" version="1.0">
+    <world ref="logicWorld"/>
+  </setup>
+
+</gdml>
+

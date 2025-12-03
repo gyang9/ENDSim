@@ -1,0 +1,931 @@
+<?xml version="1.0" ?>
+<gdml>
+  <materials>
+    <material name="water">
+      <D>1.0</D>
+    </material>
+  </materials>
+  <solids>
+    <sphere name="clusterSphere" lunit="mm" rmin="0.0" rmax="400.0" startphi="0.0" deltaphi="360.0" starttheta="0.0" deltatheta="180.0"/>
+    <box name="detectorBox" lunit="mm" x="20000" y="20000" z="200000"/>
+    <box name="worldBox" lunit="mm" x="50000" y="50000" z="250000"/>
+  </solids>
+  <structure>
+    <volume name="cluster_0">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">3.4300229428212106 3.1149090849300753 -12.29212735040023</auxiliary>
+    </volume>
+    <volume name="cluster_1">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-294.59761128614866 -190.0646708748593 122.50180281223454</auxiliary>
+    </volume>
+    <volume name="cluster_2">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">70.24276883943625 -133.52132023867264 19.623059999638297</auxiliary>
+    </volume>
+    <volume name="cluster_3">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">154.2760543734241 -220.48265419153606 -99.51886561637505</auxiliary>
+    </volume>
+    <volume name="cluster_4">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-10.62250852773988 -23.432205152100195 31.59254319443259</auxiliary>
+    </volume>
+    <volume name="cluster_5">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">125.82131707252965 104.08421642045063 -107.62622265528353</auxiliary>
+    </volume>
+    <volume name="cluster_6">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">42.5095976096252 124.49612021077745 -24.057023527547393</auxiliary>
+    </volume>
+    <volume name="cluster_7">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-31.888492267537092 -10.182132830996682 3.999282900893318</auxiliary>
+    </volume>
+    <volume name="cluster_8">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">44.09892930365403 -49.127953510186444 15.309909485739437</auxiliary>
+    </volume>
+    <volume name="cluster_9">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">70.19966858668081 23.81714434202937 -106.96059203323303</auxiliary>
+    </volume>
+    <volume name="cluster_10">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">207.75356948779373 -194.42098836152758 8.834971204611788</auxiliary>
+    </volume>
+    <volume name="cluster_11">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-104.64144941493622 -50.92500448545076 -87.0999410694791</auxiliary>
+    </volume>
+    <volume name="cluster_12">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">15.914960192573469 -46.915756236280735 -69.95661984312198</auxiliary>
+    </volume>
+    <volume name="cluster_13">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">58.4186267382112 127.26170089063136 -23.553215667942503</auxiliary>
+    </volume>
+    <volume name="cluster_14">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-10.204125931115604 110.56981883432593 51.952216210712585</auxiliary>
+    </volume>
+    <volume name="cluster_15">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-59.00514843120238 61.64971265702678 -181.27547066483814</auxiliary>
+    </volume>
+    <volume name="cluster_16">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-90.72246356933273 177.5740986229451 41.0833573512626</auxiliary>
+    </volume>
+    <volume name="cluster_17">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">12.78225832681403 -5.719470690819416 -178.90972723429678</auxiliary>
+    </volume>
+    <volume name="cluster_18">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-211.5585651838971 13.148374990039715 171.8952303895526</auxiliary>
+    </volume>
+    <volume name="cluster_19">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">59.109307823045484 -36.74491281031625 57.65324422651148</auxiliary>
+    </volume>
+    <volume name="cluster_20">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-85.05792558032674 43.9623660166351 -29.46197888203334</auxiliary>
+    </volume>
+    <volume name="cluster_21">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-235.62455087617673 103.21206678437446 202.3277235306885</auxiliary>
+    </volume>
+    <volume name="cluster_22">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-190.46192706601968 99.04069091791025 58.189459318790206</auxiliary>
+    </volume>
+    <volume name="cluster_23">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">7.5830533115503815 -130.9821209109931 -44.55557035610661</auxiliary>
+    </volume>
+    <volume name="cluster_24">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-51.616437490843 21.33623762795206 -76.942394284295</auxiliary>
+    </volume>
+    <volume name="cluster_25">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-128.12258974046264 140.72756282698185 -146.60537665347715</auxiliary>
+    </volume>
+    <volume name="cluster_26">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">50.889575621134256 -209.32195956224095 -100.59801938710383</auxiliary>
+    </volume>
+    <volume name="cluster_27">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-83.01996810397307 -128.20794332676834 26.65527684623346</auxiliary>
+    </volume>
+    <volume name="cluster_28">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-85.85329149487221 -67.76491864730531 98.65777277222651</auxiliary>
+    </volume>
+    <volume name="cluster_29">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-91.28427657449605 -27.763482591069224 63.775112667404166</auxiliary>
+    </volume>
+    <volume name="cluster_30">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-12.253490532562207 -22.82178267876834 128.9200553344746</auxiliary>
+    </volume>
+    <volume name="cluster_31">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">158.483945610907 123.82766237630602 119.93383177914667</auxiliary>
+    </volume>
+    <volume name="cluster_32">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-30.425616078638058 -12.97610192299449 142.01993816792609</auxiliary>
+    </volume>
+    <volume name="cluster_33">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">31.332948813662217 -68.35045308339329 -122.86861662765287</auxiliary>
+    </volume>
+    <volume name="cluster_34">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-17.18159026758045 -115.48755149399348 -88.93650866807145</auxiliary>
+    </volume>
+    <volume name="cluster_35">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-85.92530086525684 -157.20822464415 80.28480181984789</auxiliary>
+    </volume>
+    <volume name="cluster_36">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">0.3235274835718839 107.85625442598618 109.92517638130161</auxiliary>
+    </volume>
+    <volume name="cluster_37">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">114.58486349048825 76.36058276005836 34.26011613947138</auxiliary>
+    </volume>
+    <volume name="cluster_38">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-62.61537057864086 4.217970187259296 79.21687024758508</auxiliary>
+    </volume>
+    <volume name="cluster_39">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-184.60323790419568 24.741793793660094 136.17822996330622</auxiliary>
+    </volume>
+    <volume name="cluster_40">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-9.235018808953217 147.86619001035032 -184.06323550859318</auxiliary>
+    </volume>
+    <volume name="cluster_41">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">67.12471684785015 48.43325985251195 22.50694675679689</auxiliary>
+    </volume>
+    <volume name="cluster_42">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">119.45519754831615 -158.73085909414758 37.602150347939144</auxiliary>
+    </volume>
+    <volume name="cluster_43">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-2.8135112930385584 39.58368038707522 -53.469986262066236</auxiliary>
+    </volume>
+    <volume name="cluster_44">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">97.10861670892537 152.2389372993022 -91.73309427017686</auxiliary>
+    </volume>
+    <volume name="cluster_45">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-19.922210044697245 221.37477162070456 162.12049362153164</auxiliary>
+    </volume>
+    <volume name="cluster_46">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-77.67675431100945 -34.75030495863971 58.94376357982551</auxiliary>
+    </volume>
+    <volume name="cluster_47">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">61.54652518790445 -53.9064885784325 206.42981817419212</auxiliary>
+    </volume>
+    <volume name="cluster_48">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-166.46030520115667 -14.13675680087876 98.18277711595933</auxiliary>
+    </volume>
+    <volume name="cluster_49">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-101.00115939299388 96.58775224738618 266.95340198914954</auxiliary>
+    </volume>
+    <volume name="cluster_50">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">106.38284236327296 35.06598856016535 -190.0544687935773</auxiliary>
+    </volume>
+    <volume name="cluster_51">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-175.48685623831392 82.3318611277168 -126.84798339402175</auxiliary>
+    </volume>
+    <volume name="cluster_52">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">1.1952208900956058 -73.77309225813207 39.12473023012242</auxiliary>
+    </volume>
+    <volume name="cluster_53">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-41.037027820663845 21.45258426390699 75.0712008564246</auxiliary>
+    </volume>
+    <volume name="cluster_54">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">4.895230545671978 -0.8423656632867975 -3.019903228870692</auxiliary>
+    </volume>
+    <volume name="cluster_55">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">74.45272990402574 198.27328643455016 67.21071424828493</auxiliary>
+    </volume>
+    <volume name="cluster_56">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-43.772616799290276 249.67632134736695 54.66198009662619</auxiliary>
+    </volume>
+    <volume name="cluster_57">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">15.783339732976566 -2.386582785489091 61.883166846000776</auxiliary>
+    </volume>
+    <volume name="cluster_58">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">50.86699179783935 99.6238073850421 83.28322579399325</auxiliary>
+    </volume>
+    <volume name="cluster_59">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">134.81222354135014 -44.89170233848602 101.98933574671705</auxiliary>
+    </volume>
+    <volume name="cluster_60">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-133.69915236949325 -133.33812291978452 -11.350567145871024</auxiliary>
+    </volume>
+    <volume name="cluster_61">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">3.9829906951783793 70.87961006687367 77.3311900512257</auxiliary>
+    </volume>
+    <volume name="cluster_62">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-7.932320295392382 15.569008219054798 -24.34196779187797</auxiliary>
+    </volume>
+    <volume name="cluster_63">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">214.82095577649793 12.429898109956943 131.76745331202886</auxiliary>
+    </volume>
+    <volume name="cluster_64">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-216.04104012460408 -42.87979670681531 -76.06170662039365</auxiliary>
+    </volume>
+    <volume name="cluster_65">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">7.401303469850558 46.874733739795055 -67.70374278029345</auxiliary>
+    </volume>
+    <volume name="cluster_66">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">6.861753602349792 -15.554607315322118 203.32744714462842</auxiliary>
+    </volume>
+    <volume name="cluster_67">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">25.8686342706588 69.38310121437203 -55.49324006605942</auxiliary>
+    </volume>
+    <volume name="cluster_68">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-176.20313696267382 191.72470790248252 19.22321025557471</auxiliary>
+    </volume>
+    <volume name="cluster_69">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">87.21798493987289 154.43503847639403 -63.173060903277275</auxiliary>
+    </volume>
+    <volume name="cluster_70">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">42.6688469992427 38.94248161502444 186.33971599757282</auxiliary>
+    </volume>
+    <volume name="cluster_71">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">35.57313088436893 52.07091120045242 167.46120988129925</auxiliary>
+    </volume>
+    <volume name="cluster_72">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">158.00041369301263 -164.45318821743322 -48.03945678885407</auxiliary>
+    </volume>
+    <volume name="cluster_73">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-80.33942268598408 -15.993664086859246 -97.90056733697516</auxiliary>
+    </volume>
+    <volume name="cluster_74">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-29.73653158139632 -59.61388618284651 80.35937762690531</auxiliary>
+    </volume>
+    <volume name="cluster_75">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-41.35345689422782 -58.98080994520209 150.294848174282</auxiliary>
+    </volume>
+    <volume name="cluster_76">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">119.9703272855792 212.83588290160114 207.69334246787406</auxiliary>
+    </volume>
+    <volume name="cluster_77">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">83.2625154739038 -81.99658189048404 26.428719787259702</auxiliary>
+    </volume>
+    <volume name="cluster_78">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-189.15226006166966 73.4055140705517 66.75943472905367</auxiliary>
+    </volume>
+    <volume name="cluster_79">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-38.035812624516616 12.063049769472007 126.49565257493522</auxiliary>
+    </volume>
+    <volume name="cluster_80">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-68.74860241185128 38.81543438108673 56.51350798027819</auxiliary>
+    </volume>
+    <volume name="cluster_81">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">68.40152722029852 -37.9988623832734 -26.727753221991136</auxiliary>
+    </volume>
+    <volume name="cluster_82">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">172.83706317252202 -20.268032486331187 -149.6906008279746</auxiliary>
+    </volume>
+    <volume name="cluster_83">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">138.17943686017927 -50.71341726531635 -1.0392336055461278</auxiliary>
+    </volume>
+    <volume name="cluster_84">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">14.838763469515323 52.987538993628185 -80.95126493468861</auxiliary>
+    </volume>
+    <volume name="cluster_85">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">17.39353190689607 -1.0469394602213427 93.44355941768414</auxiliary>
+    </volume>
+    <volume name="cluster_86">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-1.4816081864965531 -95.19502467477425 14.578474050426136</auxiliary>
+    </volume>
+    <volume name="cluster_87">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">41.15291922372681 36.18666359450211 -66.55664046521655</auxiliary>
+    </volume>
+    <volume name="cluster_88">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">-71.02313984378006 -2.9641731979160113 250.23608021113048</auxiliary>
+    </volume>
+    <volume name="cluster_89">
+      <materialref ref="water"/>
+      <solidref ref="clusterSphere"/>
+      <auxiliary auxtype="ClusterPosition" autype="XYZ">131.00503209167837 74.09799503459004 171.73173279442125</auxiliary>
+    </volume>
+    <volume name="vol_detector">
+      <materialref ref="water"/>
+      <solidref ref="detectorBox"/>
+      <physvol>
+        <volumeref ref="cluster_0"/>
+        <position name="pos_cluster_0" unit="mm" x="3.4300229428212106" y="3.1149090849300753" z="-12.29212735040023"/>
+        <rotation name="rot_cluster_0" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_1"/>
+        <position name="pos_cluster_1" unit="mm" x="-294.59761128614866" y="-190.0646708748593" z="122.50180281223454"/>
+        <rotation name="rot_cluster_1" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_2"/>
+        <position name="pos_cluster_2" unit="mm" x="70.24276883943625" y="-133.52132023867264" z="19.623059999638297"/>
+        <rotation name="rot_cluster_2" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_3"/>
+        <position name="pos_cluster_3" unit="mm" x="154.2760543734241" y="-220.48265419153606" z="-99.51886561637505"/>
+        <rotation name="rot_cluster_3" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_4"/>
+        <position name="pos_cluster_4" unit="mm" x="-10.62250852773988" y="-23.432205152100195" z="31.59254319443259"/>
+        <rotation name="rot_cluster_4" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_5"/>
+        <position name="pos_cluster_5" unit="mm" x="125.82131707252965" y="104.08421642045063" z="-107.62622265528353"/>
+        <rotation name="rot_cluster_5" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_6"/>
+        <position name="pos_cluster_6" unit="mm" x="42.5095976096252" y="124.49612021077745" z="-24.057023527547393"/>
+        <rotation name="rot_cluster_6" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_7"/>
+        <position name="pos_cluster_7" unit="mm" x="-31.888492267537092" y="-10.182132830996682" z="3.999282900893318"/>
+        <rotation name="rot_cluster_7" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_8"/>
+        <position name="pos_cluster_8" unit="mm" x="44.09892930365403" y="-49.127953510186444" z="15.309909485739437"/>
+        <rotation name="rot_cluster_8" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_9"/>
+        <position name="pos_cluster_9" unit="mm" x="70.19966858668081" y="23.81714434202937" z="-106.96059203323303"/>
+        <rotation name="rot_cluster_9" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_10"/>
+        <position name="pos_cluster_10" unit="mm" x="207.75356948779373" y="-194.42098836152758" z="8.834971204611788"/>
+        <rotation name="rot_cluster_10" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_11"/>
+        <position name="pos_cluster_11" unit="mm" x="-104.64144941493622" y="-50.92500448545076" z="-87.0999410694791"/>
+        <rotation name="rot_cluster_11" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_12"/>
+        <position name="pos_cluster_12" unit="mm" x="15.914960192573469" y="-46.915756236280735" z="-69.95661984312198"/>
+        <rotation name="rot_cluster_12" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_13"/>
+        <position name="pos_cluster_13" unit="mm" x="58.4186267382112" y="127.26170089063136" z="-23.553215667942503"/>
+        <rotation name="rot_cluster_13" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_14"/>
+        <position name="pos_cluster_14" unit="mm" x="-10.204125931115604" y="110.56981883432593" z="51.952216210712585"/>
+        <rotation name="rot_cluster_14" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_15"/>
+        <position name="pos_cluster_15" unit="mm" x="-59.00514843120238" y="61.64971265702678" z="-181.27547066483814"/>
+        <rotation name="rot_cluster_15" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_16"/>
+        <position name="pos_cluster_16" unit="mm" x="-90.72246356933273" y="177.5740986229451" z="41.0833573512626"/>
+        <rotation name="rot_cluster_16" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_17"/>
+        <position name="pos_cluster_17" unit="mm" x="12.78225832681403" y="-5.719470690819416" z="-178.90972723429678"/>
+        <rotation name="rot_cluster_17" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_18"/>
+        <position name="pos_cluster_18" unit="mm" x="-211.5585651838971" y="13.148374990039715" z="171.8952303895526"/>
+        <rotation name="rot_cluster_18" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_19"/>
+        <position name="pos_cluster_19" unit="mm" x="59.109307823045484" y="-36.74491281031625" z="57.65324422651148"/>
+        <rotation name="rot_cluster_19" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_20"/>
+        <position name="pos_cluster_20" unit="mm" x="-85.05792558032674" y="43.9623660166351" z="-29.46197888203334"/>
+        <rotation name="rot_cluster_20" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_21"/>
+        <position name="pos_cluster_21" unit="mm" x="-235.62455087617673" y="103.21206678437446" z="202.3277235306885"/>
+        <rotation name="rot_cluster_21" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_22"/>
+        <position name="pos_cluster_22" unit="mm" x="-190.46192706601968" y="99.04069091791025" z="58.189459318790206"/>
+        <rotation name="rot_cluster_22" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_23"/>
+        <position name="pos_cluster_23" unit="mm" x="7.5830533115503815" y="-130.9821209109931" z="-44.55557035610661"/>
+        <rotation name="rot_cluster_23" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_24"/>
+        <position name="pos_cluster_24" unit="mm" x="-51.616437490843" y="21.33623762795206" z="-76.942394284295"/>
+        <rotation name="rot_cluster_24" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_25"/>
+        <position name="pos_cluster_25" unit="mm" x="-128.12258974046264" y="140.72756282698185" z="-146.60537665347715"/>
+        <rotation name="rot_cluster_25" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_26"/>
+        <position name="pos_cluster_26" unit="mm" x="50.889575621134256" y="-209.32195956224095" z="-100.59801938710383"/>
+        <rotation name="rot_cluster_26" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_27"/>
+        <position name="pos_cluster_27" unit="mm" x="-83.01996810397307" y="-128.20794332676834" z="26.65527684623346"/>
+        <rotation name="rot_cluster_27" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_28"/>
+        <position name="pos_cluster_28" unit="mm" x="-85.85329149487221" y="-67.76491864730531" z="98.65777277222651"/>
+        <rotation name="rot_cluster_28" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_29"/>
+        <position name="pos_cluster_29" unit="mm" x="-91.28427657449605" y="-27.763482591069224" z="63.775112667404166"/>
+        <rotation name="rot_cluster_29" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_30"/>
+        <position name="pos_cluster_30" unit="mm" x="-12.253490532562207" y="-22.82178267876834" z="128.9200553344746"/>
+        <rotation name="rot_cluster_30" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_31"/>
+        <position name="pos_cluster_31" unit="mm" x="158.483945610907" y="123.82766237630602" z="119.93383177914667"/>
+        <rotation name="rot_cluster_31" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_32"/>
+        <position name="pos_cluster_32" unit="mm" x="-30.425616078638058" y="-12.97610192299449" z="142.01993816792609"/>
+        <rotation name="rot_cluster_32" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_33"/>
+        <position name="pos_cluster_33" unit="mm" x="31.332948813662217" y="-68.35045308339329" z="-122.86861662765287"/>
+        <rotation name="rot_cluster_33" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_34"/>
+        <position name="pos_cluster_34" unit="mm" x="-17.18159026758045" y="-115.48755149399348" z="-88.93650866807145"/>
+        <rotation name="rot_cluster_34" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_35"/>
+        <position name="pos_cluster_35" unit="mm" x="-85.92530086525684" y="-157.20822464415" z="80.28480181984789"/>
+        <rotation name="rot_cluster_35" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_36"/>
+        <position name="pos_cluster_36" unit="mm" x="0.3235274835718839" y="107.85625442598618" z="109.92517638130161"/>
+        <rotation name="rot_cluster_36" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_37"/>
+        <position name="pos_cluster_37" unit="mm" x="114.58486349048825" y="76.36058276005836" z="34.26011613947138"/>
+        <rotation name="rot_cluster_37" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_38"/>
+        <position name="pos_cluster_38" unit="mm" x="-62.61537057864086" y="4.217970187259296" z="79.21687024758508"/>
+        <rotation name="rot_cluster_38" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_39"/>
+        <position name="pos_cluster_39" unit="mm" x="-184.60323790419568" y="24.741793793660094" z="136.17822996330622"/>
+        <rotation name="rot_cluster_39" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_40"/>
+        <position name="pos_cluster_40" unit="mm" x="-9.235018808953217" y="147.86619001035032" z="-184.06323550859318"/>
+        <rotation name="rot_cluster_40" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_41"/>
+        <position name="pos_cluster_41" unit="mm" x="67.12471684785015" y="48.43325985251195" z="22.50694675679689"/>
+        <rotation name="rot_cluster_41" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_42"/>
+        <position name="pos_cluster_42" unit="mm" x="119.45519754831615" y="-158.73085909414758" z="37.602150347939144"/>
+        <rotation name="rot_cluster_42" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_43"/>
+        <position name="pos_cluster_43" unit="mm" x="-2.8135112930385584" y="39.58368038707522" z="-53.469986262066236"/>
+        <rotation name="rot_cluster_43" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_44"/>
+        <position name="pos_cluster_44" unit="mm" x="97.10861670892537" y="152.2389372993022" z="-91.73309427017686"/>
+        <rotation name="rot_cluster_44" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_45"/>
+        <position name="pos_cluster_45" unit="mm" x="-19.922210044697245" y="221.37477162070456" z="162.12049362153164"/>
+        <rotation name="rot_cluster_45" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_46"/>
+        <position name="pos_cluster_46" unit="mm" x="-77.67675431100945" y="-34.75030495863971" z="58.94376357982551"/>
+        <rotation name="rot_cluster_46" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_47"/>
+        <position name="pos_cluster_47" unit="mm" x="61.54652518790445" y="-53.9064885784325" z="206.42981817419212"/>
+        <rotation name="rot_cluster_47" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_48"/>
+        <position name="pos_cluster_48" unit="mm" x="-166.46030520115667" y="-14.13675680087876" z="98.18277711595933"/>
+        <rotation name="rot_cluster_48" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_49"/>
+        <position name="pos_cluster_49" unit="mm" x="-101.00115939299388" y="96.58775224738618" z="266.95340198914954"/>
+        <rotation name="rot_cluster_49" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_50"/>
+        <position name="pos_cluster_50" unit="mm" x="106.38284236327296" y="35.06598856016535" z="-190.0544687935773"/>
+        <rotation name="rot_cluster_50" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_51"/>
+        <position name="pos_cluster_51" unit="mm" x="-175.48685623831392" y="82.3318611277168" z="-126.84798339402175"/>
+        <rotation name="rot_cluster_51" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_52"/>
+        <position name="pos_cluster_52" unit="mm" x="1.1952208900956058" y="-73.77309225813207" z="39.12473023012242"/>
+        <rotation name="rot_cluster_52" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_53"/>
+        <position name="pos_cluster_53" unit="mm" x="-41.037027820663845" y="21.45258426390699" z="75.0712008564246"/>
+        <rotation name="rot_cluster_53" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_54"/>
+        <position name="pos_cluster_54" unit="mm" x="4.895230545671978" y="-0.8423656632867975" z="-3.019903228870692"/>
+        <rotation name="rot_cluster_54" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_55"/>
+        <position name="pos_cluster_55" unit="mm" x="74.45272990402574" y="198.27328643455016" z="67.21071424828493"/>
+        <rotation name="rot_cluster_55" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_56"/>
+        <position name="pos_cluster_56" unit="mm" x="-43.772616799290276" y="249.67632134736695" z="54.66198009662619"/>
+        <rotation name="rot_cluster_56" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_57"/>
+        <position name="pos_cluster_57" unit="mm" x="15.783339732976566" y="-2.386582785489091" z="61.883166846000776"/>
+        <rotation name="rot_cluster_57" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_58"/>
+        <position name="pos_cluster_58" unit="mm" x="50.86699179783935" y="99.6238073850421" z="83.28322579399325"/>
+        <rotation name="rot_cluster_58" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_59"/>
+        <position name="pos_cluster_59" unit="mm" x="134.81222354135014" y="-44.89170233848602" z="101.98933574671705"/>
+        <rotation name="rot_cluster_59" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_60"/>
+        <position name="pos_cluster_60" unit="mm" x="-133.69915236949325" y="-133.33812291978452" z="-11.350567145871024"/>
+        <rotation name="rot_cluster_60" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_61"/>
+        <position name="pos_cluster_61" unit="mm" x="3.9829906951783793" y="70.87961006687367" z="77.3311900512257"/>
+        <rotation name="rot_cluster_61" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_62"/>
+        <position name="pos_cluster_62" unit="mm" x="-7.932320295392382" y="15.569008219054798" z="-24.34196779187797"/>
+        <rotation name="rot_cluster_62" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_63"/>
+        <position name="pos_cluster_63" unit="mm" x="214.82095577649793" y="12.429898109956943" z="131.76745331202886"/>
+        <rotation name="rot_cluster_63" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_64"/>
+        <position name="pos_cluster_64" unit="mm" x="-216.04104012460408" y="-42.87979670681531" z="-76.06170662039365"/>
+        <rotation name="rot_cluster_64" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_65"/>
+        <position name="pos_cluster_65" unit="mm" x="7.401303469850558" y="46.874733739795055" z="-67.70374278029345"/>
+        <rotation name="rot_cluster_65" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_66"/>
+        <position name="pos_cluster_66" unit="mm" x="6.861753602349792" y="-15.554607315322118" z="203.32744714462842"/>
+        <rotation name="rot_cluster_66" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_67"/>
+        <position name="pos_cluster_67" unit="mm" x="25.8686342706588" y="69.38310121437203" z="-55.49324006605942"/>
+        <rotation name="rot_cluster_67" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_68"/>
+        <position name="pos_cluster_68" unit="mm" x="-176.20313696267382" y="191.72470790248252" z="19.22321025557471"/>
+        <rotation name="rot_cluster_68" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_69"/>
+        <position name="pos_cluster_69" unit="mm" x="87.21798493987289" y="154.43503847639403" z="-63.173060903277275"/>
+        <rotation name="rot_cluster_69" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_70"/>
+        <position name="pos_cluster_70" unit="mm" x="42.6688469992427" y="38.94248161502444" z="186.33971599757282"/>
+        <rotation name="rot_cluster_70" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_71"/>
+        <position name="pos_cluster_71" unit="mm" x="35.57313088436893" y="52.07091120045242" z="167.46120988129925"/>
+        <rotation name="rot_cluster_71" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_72"/>
+        <position name="pos_cluster_72" unit="mm" x="158.00041369301263" y="-164.45318821743322" z="-48.03945678885407"/>
+        <rotation name="rot_cluster_72" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_73"/>
+        <position name="pos_cluster_73" unit="mm" x="-80.33942268598408" y="-15.993664086859246" z="-97.90056733697516"/>
+        <rotation name="rot_cluster_73" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_74"/>
+        <position name="pos_cluster_74" unit="mm" x="-29.73653158139632" y="-59.61388618284651" z="80.35937762690531"/>
+        <rotation name="rot_cluster_74" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_75"/>
+        <position name="pos_cluster_75" unit="mm" x="-41.35345689422782" y="-58.98080994520209" z="150.294848174282"/>
+        <rotation name="rot_cluster_75" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_76"/>
+        <position name="pos_cluster_76" unit="mm" x="119.9703272855792" y="212.83588290160114" z="207.69334246787406"/>
+        <rotation name="rot_cluster_76" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_77"/>
+        <position name="pos_cluster_77" unit="mm" x="83.2625154739038" y="-81.99658189048404" z="26.428719787259702"/>
+        <rotation name="rot_cluster_77" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_78"/>
+        <position name="pos_cluster_78" unit="mm" x="-189.15226006166966" y="73.4055140705517" z="66.75943472905367"/>
+        <rotation name="rot_cluster_78" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_79"/>
+        <position name="pos_cluster_79" unit="mm" x="-38.035812624516616" y="12.063049769472007" z="126.49565257493522"/>
+        <rotation name="rot_cluster_79" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_80"/>
+        <position name="pos_cluster_80" unit="mm" x="-68.74860241185128" y="38.81543438108673" z="56.51350798027819"/>
+        <rotation name="rot_cluster_80" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_81"/>
+        <position name="pos_cluster_81" unit="mm" x="68.40152722029852" y="-37.9988623832734" z="-26.727753221991136"/>
+        <rotation name="rot_cluster_81" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_82"/>
+        <position name="pos_cluster_82" unit="mm" x="172.83706317252202" y="-20.268032486331187" z="-149.6906008279746"/>
+        <rotation name="rot_cluster_82" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_83"/>
+        <position name="pos_cluster_83" unit="mm" x="138.17943686017927" y="-50.71341726531635" z="-1.0392336055461278"/>
+        <rotation name="rot_cluster_83" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_84"/>
+        <position name="pos_cluster_84" unit="mm" x="14.838763469515323" y="52.987538993628185" z="-80.95126493468861"/>
+        <rotation name="rot_cluster_84" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_85"/>
+        <position name="pos_cluster_85" unit="mm" x="17.39353190689607" y="-1.0469394602213427" z="93.44355941768414"/>
+        <rotation name="rot_cluster_85" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_86"/>
+        <position name="pos_cluster_86" unit="mm" x="-1.4816081864965531" y="-95.19502467477425" z="14.578474050426136"/>
+        <rotation name="rot_cluster_86" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_87"/>
+        <position name="pos_cluster_87" unit="mm" x="41.15291922372681" y="36.18666359450211" z="-66.55664046521655"/>
+        <rotation name="rot_cluster_87" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_88"/>
+        <position name="pos_cluster_88" unit="mm" x="-71.02313984378006" y="-2.9641731979160113" z="250.23608021113048"/>
+        <rotation name="rot_cluster_88" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="cluster_89"/>
+        <position name="pos_cluster_89" unit="mm" x="131.00503209167837" y="74.09799503459004" z="171.73173279442125"/>
+        <rotation name="rot_cluster_89" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+    </volume>
+    <volume name="vol_world">
+      <materialref ref="water"/>
+      <solidref ref="worldBox"/>
+      <physvol>
+        <volumeref ref="vol_detector"/>
+        <position name="pos_detector" unit="mm" x="0" y="0" z="0"/>
+        <rotation name="rot_detector" unit="deg" x="0" y="0" z="0"/>
+      </physvol>
+    </volume>
+  </structure>
+  <setup name="Default" version="1.0">
+    <world ref="vol_world"/>
+  </setup>
+</gdml>

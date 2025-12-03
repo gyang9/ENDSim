@@ -1,0 +1,140 @@
+{
+    name: "LED"
+    index: "end_calibration_single_mode",
+    valid_begin: [0,0],
+    valid_end: [0,0],
+    
+    intensity: 100,
+    x: [0, 0],
+    y: [1049.6, 1049.6],
+    z: [-114.3, 114.3],
+    dir_x: [0, 0],
+    dir_y: [-1,-1],
+    dir_z: [0, 0],
+    
+    // Overrides any given direction vector and aims the led instead at a target position.
+    fire_at_target: false,
+    target_x: [0.0],
+    target_y: [0.0],
+    target_z: [0.0],
+    
+    wavelength: [400.0, 400.0],
+    // intensity_mode: {"single", "chain"}
+    intensity_mode: "single",
+    // time_mode: {"unif", "dist"}
+    time_mode: "unif",
+    // angle_mode: {"iso", "dist", "multidist"}
+    angle_mode: "dist",
+    // wl_mode: {"mono", "dist"}
+    wl_mode: "mono",
+    
+    // Timing distribution if "dist"
+    dist_time: [0.0, 25.0, 50.0],
+    dist_time_intensity: [1.0, 2.0, 1.0],
+    
+    // Angular distribution if !iso -- radians?
+    dist_angle: [0.0, 1.57],
+    dist_angle_intensity: [1.0, 1.0],
+    // Angular distributions if multidist
+    n_ang_dists: 1,
+    dist_angle0: [0, 1.57],
+    dist_angle_intensity0: [1.0, 1.0],
+    
+    // Wavelength distribution if !mono
+    dist_wl: [300.0, 800.0],
+    dist_wl_intensity: [1.0, 1.0],
+}
+
+{
+    name: "LED"
+    index: "end_calibration_multi_mode",
+    valid_begin: [0,0],
+    valid_end: [0,0],
+    
+    intensity: 100,
+    x: [0, 0, 0, 0],
+    y: [1049.6, 1049.6, 1049.6, 1049.6],
+    z: [-571.5, -342.9, 342.9, 571.5],
+    dir_x: [0, 0, 0, 0],
+    dir_y: [-1,-1,-1,-1],
+    dir_z: [0, 0, 0, 0],
+    
+    // Overrides any given direction vector and aims the led instead at a target position.
+    fire_at_target: false,
+    target_x: [0.0],
+    target_y: [0.0],
+    target_z: [0.0],
+    
+    wavelength: [400.0, 400.0, 400.0, 400.0, 400.0, 400.0],
+    // intensity_mode: {"single", "chain"}
+    intensity_mode: "single",
+    // time_mode: {"unif", "dist"}
+    time_mode: "unif",
+    // angle_mode: {"iso", "dist", "multidist"}
+    angle_mode: "dist",
+    // wl_mode: {"mono", "dist"}
+    wl_mode: "mono",
+    
+    // Timing distribution if "dist"
+    dist_time: [0.0, 25.0, 50.0],
+    dist_time_intensity: [1.0, 2.0, 1.0],
+    
+    // Angular distribution if !iso -- radians?
+    dist_angle: [0.0, 0.3316],
+    dist_angle_intensity: [1.0, 1.0],
+    // Angular distributions if multidist
+    n_ang_dists: 1,
+    dist_angle0: [0, 0.3316],
+    dist_angle_intensity0: [1.0, 1.0],
+    
+    // Wavelength distribution if !mono
+    dist_wl: [300.0, 800.0],
+    dist_wl_intensity: [1.0, 1.0],
+}
+
+{
+    name: "LED"
+    index: "end_laserball",
+    valid_begin: [0,0],
+    valid_end: [0,0],
+    
+    intensity: 1000,
+    x: [0],
+    y: [0],
+    z: [0],
+    dir_x: [0],
+    dir_y: [0],
+    dir_z: [-1],
+    
+    // Overrides any given direction vector and aims the led instead at a target position.
+    fire_at_target: false,
+    target_x: [0.0],
+    target_y: [0.0],
+    target_z: [0.0],
+    
+    wavelength: [400.0],
+    // intensity_mode: {"single", "chain"}
+    intensity_mode: "single",
+    // time_mode: {"unif", "dist"}
+    time_mode: "unif",
+    // angle_mode: {"iso", "dist", "multidist"}
+    angle_mode: "dist",
+    // wl_mode: {"mono", "dist"}
+    wl_mode: "mono",
+    
+    // Timing distribution if "dist"
+    dist_time: [0.0, 25.0, 50.0],
+    dist_time_intensity: [1.0, 2.0, 1.0],
+    
+    // Angular distribution if !iso -- radians?
+    dist_angle: [0.0, 0.5],
+    dist_angle_intensity: [1.0, 1.0],
+    // Angular distributions if multidist
+    n_ang_dists: 1,
+    dist_angle0: [0.0, 2.0],
+    dist_angle_intensity0: [1.0, 1.0],
+    
+    // Wavelength distribution if !mono
+    dist_wl: [300.0, 800.0],
+    dist_wl_intensity: [1.0, 1.0],
+}

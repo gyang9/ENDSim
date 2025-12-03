@@ -1,0 +1,80 @@
+{
+name: "SN_SPECTRUM",
+index: "gvkm_nc_nuebar_O16",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_nc_numubar_O16",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_nc_nutaubar_O16",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_nue_e",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_nuebar_e",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_numu_e",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_numubar_e",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_nutau_e",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}
+
+{
+name: "SN_SPECTRUM",
+index: "gvkm_nutaubar_e",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+spec_e: [0.0, 100.0],
+spec_mag: [0.0, 0.0],
+}

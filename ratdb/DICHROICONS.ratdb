@@ -1,0 +1,30 @@
+{
+name: "DICHROICONS",
+index: "end_dichroicon",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+gdml_file: "gdml/dichroicon_tessellated.gdml",
+
+// dichroic filter
+dichroic_filter_material: "glass", // substrate material for the dichroic filter
+dichroic_surface: "shortpass_dichroic_450nm",
+dichroic_filter_color: [1.0, 0.0, 1.0, 0.8],
+
+// dichroicon frame
+base_material:   "acrylic_sno", // material for the frame
+base_color: [0.4, 0.4, 0.4, 1.0],
+base_volumes: ["LV_DICHROICON_BASE_LEG_1__Meshed_", "LV_DICHROICON_BASE_LEG_2__Meshed_", "LV_DICHROICON_BASE_LEG_3__Meshed_", "LV_DICHROICON_BASE_LEG_4__Meshed_", "LV_DICHROICON_BASE_LEG_5__Meshed_", "LV_DICHROICON_BASE_LEG_6__Meshed_", "LV_DICHROICON_BASE_LEG_7__Meshed_", "LV_DICHROICON_BASE_LEG_8__Meshed_", "LV_DICHROICON_BASE_LEG_9__Meshed_", "LV_DICHROICON_BASE_LEG_10__Meshed_", "LV_DICHROICON_BASE_LEG_11__Meshed_", "LV_DICHROICON_BASE_LEG_12__Meshed_", "LV_DICHROICON_BASE_LEG_13__Meshed_", "LV_DICHROICON_BASE_LEG_14__Meshed_", "LV_DICHROICON_BASE_LEG_15__Meshed_", "LV_DICHROICON_BASE_LEG_16__Meshed_", "LV_DICHROICON_BASE_LEG_17__Meshed_", "LV_DICHROICON_BASE_LEG_18__Meshed_", "LV_DICHROICON_BASE_RING__Meshed_"],
+
+// absorbing filter
+build_absorbing_filter: 1,
+absorbing_filter_offset: 1.0, // distance from filter to PMT
+absorbing_filter_material: "absorbing_longpass_450nm",
+absorbing_filter_thickness: 1.0,
+// defines the boarder of the PMT
+// from ratdb PMT def for r14688
+absorbing_filter_zEdge: [ 75.00, 53.06,   0.00, ],
+absorbing_filter_rhoEdge: [  0.00, 72.58, 101.00,  ],
+absorbing_filter_zOrigin: [-56.00,  0.00,   ],
+absorbing_filter_color: [0.0, 0.187, 0.53, 1.0],
+}
+

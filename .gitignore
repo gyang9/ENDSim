@@ -1,0 +1,30 @@
+# Build directories
+build/
+build_new/
+
+# Output files
+*.root
+*.log
+*.png
+*.txt
+!README.txt
+!CMakeLists.txt
+
+# Data directories
+nuInput*/
+nuOutput*/
+
+# Temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Large GDML files in ratdb/gdml (keep only the ones we need)
+ratdb/gdml/*.gdml
+!ratdb/gdml/geometry_5du.gdml
+!ratdb/gdml/geometry_single_du.gdml
+
+# Python cache
+__pycache__/
+*.pyc

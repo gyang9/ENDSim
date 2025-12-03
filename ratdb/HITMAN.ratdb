@@ -1,0 +1,7 @@
+{
+name:"Fitter",
+index:"HITMAN"
+valid_begin: [0, 0],
+valid_end: [0, 0],
+directory:"/fitters/HITMAN/water_Y90_example",
+}
