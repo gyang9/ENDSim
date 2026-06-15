@@ -1,0 +1,136 @@
+{
+name: "GEO",
+index: "world",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "", // world volume has no mother
+type: "box",
+size: [250000.0, 250000.0, 250000.0], // mm, half-length
+material: "water",
+invisible: 0,
+color: [1.0, 1.0, 1.0, 0.1],  // WHITE - semi-transparent
+drawstyle: "wireframe"
+}
+
+////////////////////////////////// Define detector properties.  ///////////////////////////////////
+{
+name: "GEO",
+index: "detector",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "world",
+type: "box",
+size: [25000.0, 25000.0, 250000.0], // mm, half-length
+position: [0.0, 0.0, 0.0],
+material: "lake_water",
+invisible: 0,
+color: [0.0, 0.5, 1.0, 0.2],  // BLUE - semi-transparent
+drawstyle: "wireframe"
+}
+
+{
+  name: "GEO",
+  index: "rock",
+  valid_begin: [0, 0],
+  valid_end: [0, 0],
+  mother: "detector",
+  type: "box",
+  size: [22000.0, 5000.0, 55000.0],
+  position: [0.0, -17000.0, 35000.0],
+  material: "rock",
+  invisible: 0,
+  color: [0.6, 0.4, 0.2, 0.3],  // BROWN - semi-transparent
+  drawstyle: "wireframe"
+}
+
+{
+name: "GEO",
+index: "gdml_du_0",
+enable: 1,
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "detector",
+type: "gdml",
+gdml_file: "/home/guang/.gemini/antigravity/scratch/ENDSim/ratdb/gdml/geometry_5du.gdml",
+position: [0.0, 0.0, 0.0],
+rotation: [0.0, 0.0, 0.0],
+invisible: 0,
+color: [0.0, 1.0, 0.0, 0.3],  // GREEN - semi-transparent (for GDML structure)
+drawstyle: "wireframe"
+}
+
+{
+name: "GEO",
+index: "gdml_du_1",
+enable: 0,  // Disabled - all 5 DUs now in geometry_5du.gdml
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "detector",
+type: "gdml",
+gdml_file: "/home/guang/.gemini/antigravity/scratch/ENDSim/ratdb/gdml/geometry_single_du.gdml",
+position: [0.0, 0.0, 11000.0],
+rotation: [0.0, 0.0, 0.0],
+}
+
+{
+name: "GEO",
+index: "gdml_du_2",
+enable: 0,  // Disabled - all 5 DUs now in geometry_5du.gdml
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "detector",
+type: "gdml",
+gdml_file: "/home/guang/.gemini/antigravity/scratch/ENDSim/ratdb/gdml/geometry_single_du.gdml",
+position: [0.0, 0.0, 22000.0],
+rotation: [0.0, 0.0, 0.0],
+}
+
+{
+name: "GEO",
+index: "gdml_du_3",
+enable: 0,  // Disabled - all 5 DUs now in geometry_5du.gdml
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "detector",
+type: "gdml",
+gdml_file: "/home/guang/.gemini/antigravity/scratch/ENDSim/ratdb/gdml/geometry_single_du.gdml",
+position: [0.0, 0.0, 33000.0],
+rotation: [0.0, 0.0, 0.0],
+}
+
+{
+name: "GEO",
+index: "gdml_du_4",
+enable: 0,  // Disabled - all 5 DUs now in geometry_5du.gdml
+valid_begin: [0, 0],
+valid_end: [0, 0],
+mother: "detector",
+type: "gdml",
+gdml_file: "/home/guang/.gemini/antigravity/scratch/ENDSim/ratdb/gdml/geometry_single_du.gdml",
+position: [0.0, 0.0, 44000.0],
+rotation: [0.0, 0.0, 0.0],
+}
+
+{
+name: "GEO",
+  index: "km3net_doms",
+  enable: 1,
+  valid_begin: [0, 0],
+  valid_end: [0, 0],
+  mother: "detector",
+type: "pmtarray",
+start_idx: 0, //idx of the first pmt
+pmt_model: "r12199",
+mu_metal: 0,
+mu_metal_material: "aluminum",
+mu_metal_surface: "aluminum",
+light_cone: 0,
+pmt_detector_type: "idpmt",
+sensitive_detector: "/mydet/pmt/inner",
+efficiency_correction: 0.70000,
+pos_table: "DOMINFO_aframe_spacing5m_hex",
+orientation: "manual",
+invisible: 0,
+color: [1.0, 0.0, 1.0, 0.5],  // MAGENTA - semi-transparent (for PMTs)
+drawstyle: "wireframe"
+}
